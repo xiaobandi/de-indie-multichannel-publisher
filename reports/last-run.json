@@ -1,0 +1,36 @@
+{
+  "repo": "de-indie-multichannel-publisher",
+  "kind": "employee",
+  "run_at": "2026-09-30T23:54:23+08:00",
+  "cases": 182,
+  "passed": 182,
+  "failed": 0,
+  "by_suite": {
+    "structure": {
+      "total": 50,
+      "failed": 0
+    },
+    "contract": {
+      "total": 26,
+      "failed": 0
+    },
+    "scenario": {
+      "total": 82,
+      "failed": 0
+    },
+    "script": {
+      "total": 6,
+      "failed": 0
+    },
+    "doc": {
+      "total": 3,
+      "failed": 0
+    },
+    "compliance": {
+      "total": 15,
+      "failed": 0
+    }
+  },
+  "skipped": [],
+  "failures": []
+}

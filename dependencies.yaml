@@ -1,0 +1,28 @@
+repo: de-indie-multichannel-publisher
+core:
+  repo: agent-skills-core
+  version: 1.0.0
+  tag: v1.0.0
+dependencies:
+- skill: attribution-analysis
+  name: 归因分析
+  source: agent-skills-core@1.0.0
+  kind: skill
+  required: true
+- skill: platform-format-adapter
+  name: 平台格式适配
+  source: agent-skills-core@1.0.0
+  kind: skill
+  required: true
+- skill: scheduled-dispatch
+  name: 定时排期
+  source: agent-skills-core@1.0.0
+  kind: skill
+  required: true
+- skill: data-ingest-adapter
+  name: 数据对接
+  source: agent-skills-core@1.0.0
+  kind: spec
+  required: true
+  note: 只发 Spec + Mock + 权限声明，实现留在本仓绑定层
+resolution_rule: 员工仓库对 core 只做 external_dependency 引用，不内联复制 SKILL.md 正文

@@ -1,0 +1,96 @@
+apiVersion: digital-employee/v1
+kind: DigitalEmployee
+metadata:
+  id: de_indie_multichannel_publisher
+  name: 多平台发布与数据回捞助理
+  alias: null
+  repo: de-indie-multichannel-publisher
+  card_no: 4.4.5
+  group: indie
+  group_label: 独立开发者
+  phase: P1
+  complexity: M
+  score: 19
+  price: ¥29-69/月——MultiPost 免费压死了"发出去"的定价空间，本员工卖的是"数据回收 + AI 改写"增值闭环
+  channels:
+  - GitHub
+  - 小红书
+  - 闲鱼
+  - 淘宝
+  license: Proprietary
+  version: 1.0.0
+spec:
+  positioning: 一次录入、十平台分发、数据自动回捞的"分发中控台"
+  users: 需要多平台内容分发的全体独立开发者与内容创作者
+  boundary: 做：格式适配、定时发布编排、数据回捞与归因报表；不做：绕过平台风控的自动登录发帖（发布执行依托 MultiPost 类工具/官方 API）、刷量
+  kpi: 单篇内容分发平台数 ≥8；分发耗时 ≤10 分钟/篇；数据回捞覆盖率 ≥90%
+  roi_summary: 日更用户月省约 20h ≈ ¥1600
+  demand_refs:
+  - D11
+  - D19
+  demand_support: 充分
+  demand_evidence: 中
+runtime:
+  system_prompt: persona/system-prompt.md
+  boundary: persona/boundary.md
+  kpi: persona/kpi.md
+deliverables:
+  skills:
+  - slug: rule-validation
+    name: 规则校验
+    kind: private
+    path: skills/rule-validation
+    version: 1.0.0
+    maturity: contract-complete
+  workflows:
+  - slug: wf-indie-publisher-intake
+    name: 内容一次录入
+    path: workflows/wf-indie-publisher-intake
+    version: 1.0.0
+    phase: P1
+    calls:
+    - platform-format-adapter
+  - slug: wf-indie-publisher-dispatch
+    name: 平台规则适配
+    path: workflows/wf-indie-publisher-dispatch
+    version: 1.0.0
+    phase: P1
+    calls:
+    - platform-format-adapter
+    - rule-validation
+  - slug: wf-indie-publisher-schedule
+    name: 定时发布
+    path: workflows/wf-indie-publisher-schedule
+    version: 1.0.0
+    phase: P1
+    calls:
+    - scheduled-dispatch
+  - slug: wf-indie-publisher-retrieve
+    name: 数据回捞
+    path: workflows/wf-indie-publisher-retrieve
+    version: 1.0.0
+    phase: P1
+    calls:
+    - data-ingest-adapter
+  - slug: wf-indie-publisher-report
+    name: 跨平台对比报表
+    path: workflows/wf-indie-publisher-report
+    version: 1.0.0
+    phase: P2
+    calls:
+    - attribution-analysis
+  knowledge_base: kb/
+  connectors: connectors/bindings.yaml
+external_dependencies:
+- repo: agent-skills-core
+  version: 1.0.0
+  skills:
+  - attribution-analysis
+  - platform-format-adapter
+  - scheduled-dispatch
+  resolution: external
+spec_only_dependencies:
+- repo: agent-skills-core
+  spec: specs/data-ingest-adapter.md
+  skill: data-ingest-adapter
+  why: 报告明确"数据采集连接器族不公共化为 SKILL"——开源侧只发 Spec + Mock + 权限声明
