@@ -1,52 +1,59 @@
 ---
-name: wf-indie-publisher-retrieve
+name: wf-indie-publisher-report
 description: >-
-  多平台发布与数据回捞助理 的「数据回捞」工作流：各平台阅读/互动数据抓取 → 统一入库。触发方式：定时（T+1/T+7）。
-  当用户要完成「数据回捞」这件事、或触发了上述条件时使用。
+  多平台发布与数据回捞助理 的「跨平台对比报表」工作流：平台间效果归因 → 平台取舍建议。触发方式：定时（每周）。
+  当用户要完成「跨平台对比报表」这件事、或触发了上述条件时使用。
 license: Proprietary
+compatibility: >-
+  需要能读取工作区文件；若环境支持执行代码，将额外启用 scripts/ 下的确定性脚本路径。
+  跨 WorkBuddy / ChatGPT / DeepSeek Harness / Kimi Work / 豆包工作。
 metadata:
   author: PLATFORM
   version: "1.0.0"
   standard: agent-skills/v1
+  library: agent-skills-library
   layer: L2-workflow
   owner: de_indie_multichannel_publisher
-  complexity: M
-  phase: P1
+  repo: de-indie-multichannel-publisher
+  visibility: private_to_employee
+  delivery: employee
+  complexity: S
+  phase: P2
   source: library
 ---
 
-# 数据回捞
+# 跨平台对比报表
 
-> 归属：**多平台发布与数据回捞助理**（`de-indie-multichannel-publisher`）　触发：定时（T+1/T+7）　
-> 复杂度 M　阶段 P1
+> 归属：**多平台发布与数据回捞助理**（`de-indie-multichannel-publisher`）　触发：定时（每周）　
+> 复杂度 S　阶段 P2
 
 ## 一、这条工作流解决什么
 
-各平台阅读/互动数据抓取 → 统一入库
+平台间效果归因 → 平台取舍建议
 
-**业务收益**：省 0.3h/日 ≈ ¥720/月
+**业务收益**：决策提质
 
 ## 二、调用的 SKILL（必填列，逐条锁定版本）
 
 | 技能名 | slug | 来源仓 | 版本 |
 |---|---|---|---|
-| `数据对接` | `data-ingest-adapter` | 本仓 | v1.0.0 |
+| `归因分析` | `attribution-analysis` | core | v1.0.0 |
 
 > 公共技能来自 `agent-skills-core@1.0.0`，本仓库只做外部依赖引用，
 > **不内联复制**其正文——这是三层仓库体系的硬规则，避免同一能力多份副本各自漂移。
 
 ## 三、执行步骤（每步四要素齐备）
 
-### 步骤 1：各平台阅读/互动数据抓取
+### 步骤 1：平台间效果归因
 
-- **做**：各平台阅读/互动数据抓取
+- **做**：平台间效果归因
 - **输入来源**：用户提供的原始材料（工作流第 1 步没有「上一步」）/ 本员工知识库 `kb/` / 连接器只读数据；三者皆空时必须停在 G1 闸门
 - **依据与结论**：把本步结论对应到具体输入项
 - **未决 · 待填**：缺数据处写 `<待填>` 并给出获取方式
 
-### 步骤 2：统一入库
+### 步骤 2：平台取舍建议
 
-- **做**：统一入库
+- **做**：平台取舍建议
 - **输入来源**：步骤 1 的产出 / 本员工知识库 `kb/` / 连接器只读数据
 - **依据与结论**：把本步结论对应到具体输入项
 - **未决 · 待填**：缺数据处写 `<待填>` 并给出获取方式

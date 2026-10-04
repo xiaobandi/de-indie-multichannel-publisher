@@ -1,0 +1,15 @@
+{
+  "name": "wf-indie-publisher-retrieve",
+  "title": "数据回捞",
+  "kind": "workflow",
+  "owner": "de-indie-multichannel-publisher",
+  "complexity": "M",
+  "phase": "P1",
+  "one_liner": "各平台阅读/互动数据抓取 → 统一入库",
+  "pages": [
+    "docs/使用手册.html",
+    "docs/使用示例.html",
+    "docs/用户场景.html",
+    "docs/架构与流程图.html"
+  ]
+}

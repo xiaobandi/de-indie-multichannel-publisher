@@ -1,0 +1,15 @@
+{
+  "name": "wf-indie-publisher-dispatch",
+  "title": "平台规则适配",
+  "kind": "workflow",
+  "owner": "de-indie-multichannel-publisher",
+  "complexity": "S",
+  "phase": "P1",
+  "one_liner": "按 10+ 平台字数/图片/标签规则改写与校验",
+  "pages": [
+    "docs/使用手册.html",
+    "docs/使用示例.html",
+    "docs/用户场景.html",
+    "docs/架构与流程图.html"
+  ]
+}
