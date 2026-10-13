@@ -17,7 +17,7 @@ metadata:
   - 小红书
   - 闲鱼
   - 淘宝
-  license: Proprietary
+  license: Apache-2.0
   version: 1.0.0
 spec:
   positioning: 一次录入、十平台分发、数据自动回捞的"分发中控台"

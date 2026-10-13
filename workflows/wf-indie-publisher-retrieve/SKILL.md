@@ -3,7 +3,7 @@ name: wf-indie-publisher-retrieve
 description: >-
   多平台发布与数据回捞助理 的「数据回捞」工作流：各平台阅读/互动数据抓取 → 统一入库。触发方式：定时（T+1/T+7）。
   当用户要完成「数据回捞」这件事、或触发了上述条件时使用。
-license: Proprietary
+license: Apache-2.0
 compatibility: >-
   需要能读取工作区文件；若环境支持执行代码，将额外启用 scripts/ 下的确定性脚本路径。
   跨 WorkBuddy / ChatGPT / DeepSeek Harness / Kimi Work / 豆包工作。
